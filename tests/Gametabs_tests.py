@@ -30,51 +30,51 @@ class LogInTest:
         # try logging in without entering a username and verify the expected error appears
         home_page.navigate_to()
         home_page.click_sign_in_link()
-        # assert that the log-in popup appears
+        wait_until_element_exists_by_css_selector(self.driver, 'div[id="auth-app"]')
         username = ''
         password = 'test'
         home_page.enter_username(username)
         home_page.enter_password(password)
         home_page.click_login_button()
-        assert verify_element_exists_by_xpath(self.driver, '//div[@id="auth-app"]//div[contains(text(), "User name field is required.")]'), 'The expected message did not appear'
+        wait_until_element_exists_by_xpath(self.driver, '//div[@id="auth-app"]//div[contains(text(), "User name field is required.")]')
         
         # try logging in without entering a password and verify the expected error appears
         home_page.navigate_to()
         home_page.click_sign_in_link()
-        # assert that the log-in popup appears
+        wait_until_element_exists_by_css_selector(self.driver, 'div[id="auth-app"]')
         username = 'test'
         password = ''
         home_page.enter_username(username)
         home_page.enter_password(password)
         home_page.click_login_button()
-        assert verify_element_exists_by_xpath(self.driver, '//div[@id="auth-app"]//div[contains(text(), "Password field is required.")]'), 'The expected message did not appear'
+        wait_until_element_exists_by_xpath(self.driver, '//div[@id="auth-app"]//div[contains(text(), "Password field is required.")]')
         
         # try logging in with incorrect credentials and verify the expected message appears
         home_page.navigate_to()
         home_page.click_sign_in_link()
-        # assert that the log-in popup appears
+        wait_until_element_exists_by_css_selector(self.driver, 'div[id="auth-app"]')
         username = 'test'
         password = 'test'
         home_page.enter_username(username)
         home_page.enter_password(password)
         home_page.click_login_button()
-        wait_until_element_exists_by_xpath(self.driver, '//div[@id="auth-app"]//div[contains(text(), "Wrong username or password.")]', 5, True)
-        assert verify_element_exists_by_xpath(self.driver, '//div[@id="auth-app"]//div[contains(text(), "Wrong username or password.")]'), 'The expected message did not appear'
+        wait_until_element_exists_by_xpath(self.driver, '//div[@id="auth-app"]//div[contains(text(), "Wrong username or password.")]')
         
-        # test logging in
+        # try logging in with valid credentials
         home_page.navigate_to()
         home_page.click_sign_in_link()
-        # assert that the log-in popup appears
-        username = 'what if bears could'
+        wait_until_element_exists_by_css_selector(self.driver, 'div[id="auth-app"]')
+        username = 'What if bears could'
         password = ''
         home_page.enter_username(username)
         home_page.enter_password(password)
         home_page.click_login_button()
-        # assert that the user is logged in
+        wait_until_element_exists_by_xpath(self.driver, '//div[@id="login-or-register"]/a[contains(text(),"' + username + '")]')
         
-        # test logging out
-        # home_page.click_
+        # try logging out
+        home_page.click_logout_link()
+        wait_until_element_exists_by_xpath(self.driver, '//div[@id="login-or-register" and contains(text(), "Welcome to gametabs.net!")]')
         
-        # home_page.click_login_button()
+        
         
 
