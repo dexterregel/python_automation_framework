@@ -1,7 +1,8 @@
 
-
-
-
+import random
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.alert import Alert
+from functions import *
 
 class BasePage():
     
@@ -41,11 +42,16 @@ class GameSelectPage(BasePage):
             print('Could not enter filter terms: ', err)
     
     
-    def join_game(self, game_name):
+    def join_game(self, game_name, password):
         try:
             self.driver.find_element_by_xpath('//div[starts-with(@id, "gamelist") and starts-with(@aria-label, "' + game_name + '")]//input[@class="gamelist_lobby_join"]').click()
         except Exception as err:
             print('Could not join game because: ', err)
+    
+        Alert(self.driver).send_keys(password)
+        Alert(self.driver).accept()
+        
+        return PlayGamePage(self.driver)
     
     
     def enter_password(self, password):
@@ -55,6 +61,24 @@ class GameSelectPage(BasePage):
             print('Could not enter the password: ', err)
         
         self.driver.switch_to().alert().accept()
+
+class PlayGamePage(BasePage):
+    
+    def selectRandWhiteCard(self):
+        whiteCards = self.driver.find_elements_by_css_selector('div.game_hand_cards > div.card_holder')
+        whiteCards[random.randint(0,len(whiteCards)-1)].click()
+    
+    def click_confirm_selection_button(self):
+        self.driver.find_element_by_css_selector('input.confirm_card').click()
+    
+    def selectRandWinner(self):
+        # if pick X round
+        if verify_element_exists_by_xpath(self.driver, '//div[@class="game_white_cards_binder"]'):
+            playedCards = self.driver.find_elements_by_xpath('//div[@class="game_white_cards_binder"]/div[@class="card_holder"]')
+        else:
+            playedCards = self.driver.find_elements_by_xpath('//div[contains(@class,"game_white_cards") and contains(@class,"game_right_side_cards")]/div[@class="card_holder"]')
+        
+        playedCards[random.randint(0,len(playedCards)-1)].click()
         
 
 
