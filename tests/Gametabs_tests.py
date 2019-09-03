@@ -2,7 +2,7 @@ from selenium import webdriver
 from functions import *
 from pages.Gametabs_pages import *
 
-class SearchTest:
+class Gametabs_SearchTest:
     
     def __init__(self):
         self.driver = webdriver.Firefox()
@@ -19,7 +19,7 @@ class SearchTest:
 
 
 # positive and negative testing for logging in and out of the website
-class LogInTest:
+class Gametabs_LogInTest:
     
     def __init__(self):
         self.driver = webdriver.Firefox()
@@ -64,7 +64,7 @@ class LogInTest:
         home_page.navigate_to()
         home_page.click_sign_in_link()
         wait_until_element_exists_by_css_selector(self.driver, 'div[id="auth-app"]')
-        username = 'What if bears could'
+        username = ''
         password = ''
         home_page.enter_username(username)
         home_page.enter_password(password)
