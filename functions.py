@@ -16,10 +16,6 @@ def verify_element_exists_by_css_selector(driver, css_selector):
     return True
 
 
-def sleep(seconds):
-    print('I am sleeping')
-
-
 def wait_until_element_exists_by_xpath(driver, xpath, max_wait = None, raise_exception = True):
 
     if max_wait == None:

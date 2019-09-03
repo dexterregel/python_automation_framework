@@ -1,6 +1,5 @@
 
 import random
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.alert import Alert
 from functions import *
 
@@ -8,6 +7,7 @@ class BasePage():
     
     def __init__(self, driver):
         self.driver = driver
+    
     
     def navigate_to(self):
         self.driver.get(self.url)
@@ -42,44 +42,58 @@ class GameSelectPage(BasePage):
             print('Could not enter filter terms: ', err)
     
     
-    def join_game(self, game_name, password):
+    def click_join_game_button(self, host_name):
         try:
-            self.driver.find_element_by_xpath('//div[starts-with(@id, "gamelist") and starts-with(@aria-label, "' + game_name + '")]//input[@class="gamelist_lobby_join"]').click()
+            self.driver.find_element_by_xpath('//div[starts-with(@aria-label, "' + host_name + '")]//input[@class="gamelist_lobby_join"]').click()
         except Exception as err:
-            print('Could not join game because: ', err)
-    
-        Alert(self.driver).send_keys(password)
-        Alert(self.driver).accept()
-        
-        return PlayGamePage(self.driver)
-    
-    
-    def enter_password(self, password):
+            print('Could not click the join game button: ', err)
+
+
+    def enter_game_password(self, password):
         try:
-            self.driver.switch_to().alert().send_keys(password)
+            Alert(self.driver).send_keys(password)
         except Exception as err:
             print('Could not enter the password: ', err)
+    
+    
+    def click_ok_button(self):
+        try:
+            Alert(self.driver).accept()
+        except Exception as err:
+            print('Could not click the ok button: ', err)
         
-        self.driver.switch_to().alert().accept()
+        # the page changes after clicking the ok button, so return a new page object
+        return PlayGamePage(self.driver)
+
 
 class PlayGamePage(BasePage):
     
-    def selectRandWhiteCard(self):
-        whiteCards = self.driver.find_elements_by_css_selector('div.game_hand_cards > div.card_holder')
-        whiteCards[random.randint(0,len(whiteCards)-1)].click()
+    def select_rand_white_card(self):
+        try:
+            whiteCards = self.driver.find_elements_by_css_selector('div.game_hand_cards > div.card_holder')
+            whiteCards[random.randint(0,len(whiteCards)-1)].click()
+        except Exception as err:
+            print('Could not select a random white card: ', err)
+    
     
     def click_confirm_selection_button(self):
-        self.driver.find_element_by_css_selector('input.confirm_card').click()
+        try:
+            self.driver.find_element_by_css_selector('input.confirm_card').click()
+        except Exception as err:
+            print('Could not click the confirm selection button: ', err)
     
-    def selectRandWinner(self):
-        # if pick X round
-        if verify_element_exists_by_xpath(self.driver, '//div[@class="game_white_cards_binder"]'):
-            playedCards = self.driver.find_elements_by_xpath('//div[@class="game_white_cards_binder"]/div[@class="card_holder"]')
-        else:
-            playedCards = self.driver.find_elements_by_xpath('//div[contains(@class,"game_white_cards") and contains(@class,"game_right_side_cards")]/div[@class="card_holder"]')
-        
-        playedCards[random.randint(0,len(playedCards)-1)].click()
-        
+    
+    def select_rand_winner(self):
+        try:
+            # select a random group of white cards if players played more than one
+            if verify_element_exists_by_xpath(self.driver, '//div[@class="game_white_cards_binder"]'):
+                playedCards = self.driver.find_elements_by_xpath('//div[@class="game_white_cards_binder"]/div[@class="card_holder"]')
+            # select a random white card
+            else:
+                playedCards = self.driver.find_elements_by_xpath('//div[contains(@class,"game_white_cards") and contains(@class,"game_right_side_cards")]/div[@class="card_holder"]')
+            playedCards[random.randint(0,len(playedCards)-1)].click()
+        except Exception as err:
+            print('Could not select a random winner: ', err)
 
 
 
