@@ -3,6 +3,7 @@ import json
 from jsonpath import jsonpath
 import random
 
+
 class reqres_api_tests:
 
     def get_user(self):
@@ -27,7 +28,8 @@ class reqres_api_tests:
 
         url = 'https://reqres.in/api/users'
         expected_status_code = 201
-        request_json = json.load(open('C:\\Users\\Dexter\\Programming\\Python\\Automation_take2\\POM\\api_tests\\request_jsons\\reqres_post_user.json', mode='r'))
+        #request_json = json.load(open('C:\\Users\\Dexter\\Programming\\Python\\Automation_take2\\POM\\api_tests\\request_jsons\\reqres_post_user.json', mode='r'))
+        request_json = json.loads(json.dumps({"name": "another name", "job": "another job"}))
         # get the expected values from the request json
         expected_name = jsonpath(request_json, 'name')[0]
         expected_job = jsonpath(request_json, 'job')[0]
@@ -59,6 +61,7 @@ class reqres_api_tests:
         
         url = 'https://reqres.in/api/users'
         expected_status_code = 200
+        # load json file
         request_json = json.load(open('C:\\Users\\Dexter\\Programming\\Python\\Automation_take2\\POM\\api_tests\\request_jsons\\reqres_put_user.json', mode='r'))
         # get the expected values from the request json
         expected_name = jsonpath(request_json, 'name')
@@ -83,4 +86,6 @@ class reqres_api_tests:
             + ' did not match the expected job ' + expected_job)
         assert response_updatedAt is not None, 'An update time was not returned.'
 
-        
+test = reqres_api_tests()
+test.put_user()
+
