@@ -71,6 +71,8 @@ def test_log_in():
     # try logging out
     home_page.click_logout_link()
     wait_until_element_exists_by_xpath(driver, '//div[@id="login-or-register" and contains(text(), "Welcome to gametabs.net!")]')
+    
+    driver.close()
         
         
         

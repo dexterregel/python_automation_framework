@@ -1,0 +1,61 @@
+
+Setting up the framework
+    
+    Install Python 3.7
+    Add Python to PATH environment variable (e.g. C:\Program Files\Python37\)
+    Any browser drivers should be placed in the Python parent folder (or another directory in the PATH environment variable)
+    Install the following modules using "python -m pip install <module name>":
+        selenium
+            Used for UI tests
+        requests
+            Used for making HTTP requests/API testing
+        json
+            Used for loading and unloading json files for API testing
+        jsonpath
+            Used for parsing json responses to HTTP requests
+        pytest
+            Used for automating 
+
+
+Running tests: all tests can be triggered manually from the command line
+
+    To run all tests:
+        python -m pytest
+       
+    To run all tests within a specific directory (useful for running all API tests vs all UI tests):
+        python -m pytest <directory name>/
+        python -m pytest ui_tests/
+
+    To run all tests within a specific file:
+        
+        If the current directory contains the file:
+            python -m pytest <filename>
+            python -m pytest test_Gametabs.py
+            
+        If the current directory does not contain the file:
+            python -m pytest <filepath>
+            python -m pytest ui_tests/test_Gametabs.py
+
+    To run an individual test (will run tests which contain names that match the given string expression,
+    which can include Python operators that use filenames, class names and function names as variables):
+        python -m pytest -k "<test name>"
+        python -m pytest -k "test_log_in"
+        python -m pytest ui_tests/test_Gametabs.py -k "test_log_in"
+        
+        OR
+        
+        python -m pytest <filepath>::<test name>
+        python -m pytest ui_tests/test_Gametabs.py::test_log_in
+
+
+Conventions:
+    All API and UI test filenames must begin with "test_" or end with "_test" in order to work with pytest. Framework items, like page object model files, do not
+    All API and UI tests are functions. Their names must begin with "test" in order to work with pytest
+    Each UI test file must import its corresponding POM file, webdriver from selenium, and any other dependencies (such as the functions file)
+    
+    
+
+    
+
+
+

@@ -1,5 +1,4 @@
-
-actual documentation is in progress. right now this readme is serving as a history and
+actual documentation is in progress. right now this notes file is serving as a history and
 lessons learned for developing the framework
 
 
@@ -33,6 +32,3 @@ before moving to pytest, this framework worked like:
 
 after pytest, each test was turned into a function instead. because pytest runs the test
 automatically, there's no need for the class -> __init__ catch
-
-
-
