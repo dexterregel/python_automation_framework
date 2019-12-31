@@ -1,0 +1,61 @@
+2019-12-31 14:49:35,942 | INFO | Test start: test_search
+2019-12-31 14:49:56,854 | INFO | Test end: test_search
+2019-12-31 14:49:56,861 | INFO | Test start: test_log_in
+2019-12-31 14:50:10,262 | INFO | Entering wait_until_element_exists_by_css_selector with css_selector = div[id="auth-app"], max_wait = None, raise_exception = True
+2019-12-31 14:50:10,262 | INFO | Waiting until element exists...
+2019-12-31 14:50:10,262 | INFO | Entering verify_element_exists_by_css_selector with css selector = div[id="auth-app"]
+2019-12-31 14:50:10,270 | INFO | Exiting verify_element_exists_by_css_selector with doesElementExist = True
+2019-12-31 14:50:10,274 | INFO | Entering verify_element_exists_by_css_selector with css selector = div[id="auth-app"]
+2019-12-31 14:50:10,283 | INFO | Exiting verify_element_exists_by_css_selector with doesElementExist = True
+2019-12-31 14:50:10,736 | INFO | Entering wait_until_element_exists_by_xpath with xpath = //div[@id="auth-app"]//div[contains(text(), "User name field is required.")], max_wait = None, raise_exception = True
+2019-12-31 14:50:10,736 | INFO | max_wait not specified, defaulting to 5 seconds
+2019-12-31 14:50:10,736 | INFO | Waiting until element exists...
+2019-12-31 14:50:10,737 | INFO | Entering verify_element_exists_by_xpath with xpath = //div[@id="auth-app"]//div[contains(text(), "User name field is required.")]
+2019-12-31 14:50:10,750 | INFO | Exiting verify_element_exists_by_xpath with doesElementExist = True
+2019-12-31 14:50:10,750 | INFO | Element found after waiting 0 second(s)
+2019-12-31 14:50:13,143 | INFO | Entering wait_until_element_exists_by_css_selector with css_selector = div[id="auth-app"], max_wait = None, raise_exception = True
+2019-12-31 14:50:13,143 | INFO | Waiting until element exists...
+2019-12-31 14:50:13,143 | INFO | Entering verify_element_exists_by_css_selector with css selector = div[id="auth-app"]
+2019-12-31 14:50:13,155 | INFO | Exiting verify_element_exists_by_css_selector with doesElementExist = True
+2019-12-31 14:50:13,155 | INFO | Entering verify_element_exists_by_css_selector with css selector = div[id="auth-app"]
+2019-12-31 14:50:13,166 | INFO | Exiting verify_element_exists_by_css_selector with doesElementExist = True
+2019-12-31 14:50:13,546 | INFO | Entering wait_until_element_exists_by_xpath with xpath = //div[@id="auth-app"]//div[contains(text(), "Password field is required.")], max_wait = None, raise_exception = True
+2019-12-31 14:50:13,546 | INFO | max_wait not specified, defaulting to 5 seconds
+2019-12-31 14:50:13,547 | INFO | Waiting until element exists...
+2019-12-31 14:50:13,547 | INFO | Entering verify_element_exists_by_xpath with xpath = //div[@id="auth-app"]//div[contains(text(), "Password field is required.")]
+2019-12-31 14:50:13,556 | INFO | Exiting verify_element_exists_by_xpath with doesElementExist = True
+2019-12-31 14:50:13,556 | INFO | Element found after waiting 0 second(s)
+2019-12-31 14:50:15,494 | INFO | Entering wait_until_element_exists_by_css_selector with css_selector = div[id="auth-app"], max_wait = None, raise_exception = True
+2019-12-31 14:50:15,495 | INFO | Waiting until element exists...
+2019-12-31 14:50:15,495 | INFO | Entering verify_element_exists_by_css_selector with css selector = div[id="auth-app"]
+2019-12-31 14:50:15,506 | INFO | Exiting verify_element_exists_by_css_selector with doesElementExist = True
+2019-12-31 14:50:15,506 | INFO | Entering verify_element_exists_by_css_selector with css selector = div[id="auth-app"]
+2019-12-31 14:50:15,515 | INFO | Exiting verify_element_exists_by_css_selector with doesElementExist = True
+2019-12-31 14:50:15,948 | INFO | Entering wait_until_element_exists_by_xpath with xpath = //div[@id="auth-app"]//div[contains(text(), "Wrong username or password.")], max_wait = None, raise_exception = True
+2019-12-31 14:50:15,948 | INFO | max_wait not specified, defaulting to 5 seconds
+2019-12-31 14:50:15,948 | INFO | Waiting until element exists...
+2019-12-31 14:50:15,948 | INFO | Entering verify_element_exists_by_xpath with xpath = //div[@id="auth-app"]//div[contains(text(), "Wrong username or password.")]
+2019-12-31 14:50:15,956 | INFO | Exiting verify_element_exists_by_xpath with doesElementExist = False
+2019-12-31 14:50:15,956 | INFO | Element not found. Elapsed wait time = 0 second(s)
+2019-12-31 14:50:16,961 | INFO | Entering verify_element_exists_by_xpath with xpath = //div[@id="auth-app"]//div[contains(text(), "Wrong username or password.")]
+2019-12-31 14:50:16,970 | INFO | Exiting verify_element_exists_by_xpath with doesElementExist = True
+2019-12-31 14:50:16,971 | INFO | Element found after waiting 1 second(s)
+2019-12-31 14:50:19,873 | INFO | Entering wait_until_element_exists_by_css_selector with css_selector = div[id="auth-app"], max_wait = None, raise_exception = True
+2019-12-31 14:50:19,873 | INFO | Waiting until element exists...
+2019-12-31 14:50:19,873 | INFO | Entering verify_element_exists_by_css_selector with css selector = div[id="auth-app"]
+2019-12-31 14:50:19,885 | INFO | Exiting verify_element_exists_by_css_selector with doesElementExist = True
+2019-12-31 14:50:19,885 | INFO | Entering verify_element_exists_by_css_selector with css selector = div[id="auth-app"]
+2019-12-31 14:50:19,893 | INFO | Exiting verify_element_exists_by_css_selector with doesElementExist = True
+2019-12-31 14:50:20,235 | INFO | Entering wait_until_element_exists_by_xpath with xpath = //div[@id="login-or-register"]/a[contains(text(),"")], max_wait = None, raise_exception = True
+2019-12-31 14:50:20,235 | INFO | max_wait not specified, defaulting to 5 seconds
+2019-12-31 14:50:20,235 | INFO | Waiting until element exists...
+2019-12-31 14:50:20,235 | INFO | Entering verify_element_exists_by_xpath with xpath = //div[@id="login-or-register"]/a[contains(text(),"")]
+2019-12-31 14:50:20,243 | INFO | Exiting verify_element_exists_by_xpath with doesElementExist = True
+2019-12-31 14:50:20,243 | INFO | Element found after waiting 0 second(s)
+2019-12-31 14:50:20,251 | INFO | Entering wait_until_element_exists_by_xpath with xpath = //div[@id="login-or-register" and contains(text(), "Welcome to gametabs.net!")], max_wait = None, raise_exception = True
+2019-12-31 14:50:20,251 | INFO | max_wait not specified, defaulting to 5 seconds
+2019-12-31 14:50:20,251 | INFO | Waiting until element exists...
+2019-12-31 14:50:20,251 | INFO | Entering verify_element_exists_by_xpath with xpath = //div[@id="login-or-register" and contains(text(), "Welcome to gametabs.net!")]
+2019-12-31 14:50:20,259 | INFO | Exiting verify_element_exists_by_xpath with doesElementExist = True
+2019-12-31 14:50:20,263 | INFO | Element found after waiting 0 second(s)
+2019-12-31 14:50:23,599 | INFO | Test end: test_log_in

@@ -14,12 +14,14 @@ Setting up the framework
         jsonpath
             Used for parsing json responses to HTTP requests
         pytest
-            Used for automating 
+            Used for automating test execution
 
 
-Running tests: all tests can be triggered manually from the command line
+Running tests: tests can be triggered manually from the command line. In this framework's current form,
+logging will only work if all tests are started by running main.py (not by calling the pytest module)
 
     To run all tests:
+        python main.py
         python -m pytest
        
     To run all tests within a specific directory (useful for running all API tests vs all UI tests):

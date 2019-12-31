@@ -1,9 +1,11 @@
 from selenium import webdriver
+import logging
 from functions import *
 from pages.Gametabs_pages import *
 
 def test_search():
-
+    logging.info('Test start: test_search')
+    
     driver = webdriver.Firefox()
     driver.maximize_window()
     
@@ -15,10 +17,14 @@ def test_search():
     search_page.verify_search_results('hello')
     
     driver.close()
+    
+    logging.info('Test end: test_search')
 
 
 # positive and negative testing for logging in and out of Gametabs
 def test_log_in():
+    logging.info('Test start: test_log_in')
+
     driver = webdriver.Firefox()
     driver.maximize_window()
     
@@ -73,7 +79,7 @@ def test_log_in():
     wait_until_element_exists_by_xpath(driver, '//div[@id="login-or-register" and contains(text(), "Welcome to gametabs.net!")]')
     
     driver.close()
-        
-        
-        
+    
+    logging.info('Test end: test_log_in')
+
 
